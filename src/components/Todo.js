@@ -8,8 +8,21 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
     id: null,
     value: ''
   })
+  
+  const [subTodo, setSubTodo] = useState({
+    id: null,
+    value: ''
+  })
 
   const submitUpdate = value => {
+    updateTodo(subTodo.id, value)
+    setSubTodo({
+      id: null,
+      value: ''
+    })
+  }
+
+  const submitUpdate2 = value => {
     updateTodo(edit.id, value)
     setEdit({
       id: null,
@@ -17,8 +30,12 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
     })
   }
 
+  if (subTodo.id) {
+    return <TodoForm subTodo={subTodo} onSubmit={submitUpdate} />
+  }
+
   if (edit.id) {
-    return <TodoForm edit={edit} onSubmit={submitUpdate} />
+    return <TodoForm edit={edit} onSubmit={submitUpdate2} />
   }
 
   if (todos) {
@@ -39,10 +56,11 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
             onClick={() => setEdit({ id: todo.id, value: todo.text })}
             className="edit-icon"
           />
-          <TiPlus
-            onClick={() => setEdit({ id: todo.id, value: todo.text })}
-            className="edit-icon"
-          />
+          <a target="_blank" href="https://www.google.com" class="GFG">
+            <TiPlus
+              className="subtodo-icon"
+            />
+          </a>
         </div>
       </div>
     ))
