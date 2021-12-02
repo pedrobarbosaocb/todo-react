@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+
+/* fontes */
+@font-face {
+  font-family: 'Tr2n';
+  src: url('fonts/Tr2n.ttf');
+}
+
+@font-face {
+  font-family: 'Audiowide';
+  src: url('fonts/Audiowide-Regular.ttf');
+}
+
+/* paleta de cores/variaveis */
+:root {
+  --background: linear-gradient(90deg, rgb(18, 4, 88) 0%, rgb(122, 4, 236) 100%);
+  --white: #CECECE;
+  --tertiary: #1C0135;
+  --red: #FF1250;
+  --pink: #FF00A1;
+  --pinkAlt: #FE76FE;
+  --purple: #7A04EC;
+  --purpleAlt: #AC10E5;
+  --logoPosition: .75em;
+}
+
+/* logo */
+.logo {
+  position: absolute; /*position: fixed;*/
+  top: var(--logoPosition);
+  left: var(--logoPosition);
+  font-size: 30px;
+  font-family: 'Tr2n';
+  text-decoration: none;
+}
+
+#pomodLOGO {
+  color: #FE76FE;
+  text-shadow:
+    0 0 7px #FE76FE,
+    0 0 151px #FE76FE;
+}
+
+#orcLOGO {
+  color: #FF00A1;
+}
+
+#orcLOGO:hover {
+  text-shadow:
+    0 0 7px #FF00A1,
+    0 0 151px #FF00A1;
+}
+
+/* tamanho geral */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* cor de fundo */
+body {
+  background: var(--background);
+  font-family: 'Audiowide';
+}
+
+/*  */
+.todo-app {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 520px;
+  min-height: 600px;
+  background: var(--tertiary);
+  text-align: center;
+  margin: 128px auto;
+  border-radius: 20px;
+  padding-bottom: 32px;
+}
+
+/* titulo */
+h1 {
+  margin: 32px 0;
+  color: var(--pinkAlt);
+  font-size: 24px;
+}
+
+/* todo checked */
+.complete {
+  text-decoration: line-through;
+  opacity: 0.4;
+}
+
+.todo-form {
+  margin-bottom: 32px;
+}
+
+.todo-input {
+
+  box-shadow:
+  0 0 7px var(--pink),
+  0 0 151px var(--pink);
+
+  padding: 14px 32px 14px 16px;
+  border-radius: 20px 0 0 20px;
+  border: 2px solid var(--red);
+  outline: none;
+  width: 320px;
+  background: transparent;
+  color: #fff;
+}
+
+.todo-input::placeholder {
+  color: #e2e2e2;
+}
+
+.todo-button {
+
+  box-shadow:
+  0 0 7px var(--pink),
+  0 0 151px var(--pink);
+
+  padding: 16px;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  outline: none;
+  background: var(--red);
+  color: #CECECE;
+  text-transform: capitalize;
+}
+
+/* editando o todo */
+.todo-input.edit {
+  border: 2px solid var(--pink);
+}
+
+.todo-button.edit {
+  background: var(--pink);
+  padding: 16px 22px;
+}
+
+
+.todo-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.todo-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px auto;
+  color: var(--white);
+  border: var(--red);
+  border-width: thin;
+  background: linear-gradient(
+    90deg,
+    var(--pinkAlt) 0%,
+    var(--pink) 100%
+  );
+
+  padding: 16px;
+  border-radius: 20px;
+  width: 90%;
+}
+
+
+.todo-row:nth-child(2n + 1) {
+  background: linear-gradient(
+    90deg,
+    var(--purpleAlt) 0%,
+    var(--purple) 100%
+  );
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.delete-icon {
+  margin-right: 5px;
+  color: var(--white);
+}
+
+.edit-icon {
+  color: var(--white);
+}
