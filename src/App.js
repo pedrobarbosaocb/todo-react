@@ -8,10 +8,14 @@ function App() {
       
       <TodoList className="test" />
 
-      <a href="#" className="logo">
+      <a href="/" className="logo">
         <text id="pomodLOGO">POMOD</text>
         <text id="orcLOGO">ORC</text>
       </a>
+
+      <div className="back-button-todo">
+          <a href="/" id="backTodo">VOLTAR</a>
+      </div>
 
     </div>
   )
